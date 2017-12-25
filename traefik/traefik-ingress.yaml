@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: traefik-ingress
+  namespace: default
+spec:
+  rules:
+  - host: 此处配置域名 
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: 此处配置svc名称
+          servicePort: 此处配置后端端口

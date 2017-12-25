@@ -1,0 +1,6 @@
+idefaultEntryPoints = ["http"]
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+[kubernetes]
+  endpoint = "此处配置server api地址"

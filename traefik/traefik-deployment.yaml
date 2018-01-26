@@ -16,18 +16,10 @@ spec:
       hostNetwork: true
       restartPolicy: Always
       serviceAccountName: ingress
-      volumes:
-      - name: t-config
-        configMap:
-          name: traefik-conf
       containers:
       - image: traefik
         imagePullPolicy: IfNotPresent
         name: traefik-ingress-lb
-        volumeMounts:
-        - mountPath: /etc/traefik
-          name: t-config
-          readOnly: false
         resources:
           limits:
             cpu: 200m
@@ -47,8 +39,5 @@ spec:
         - --web.address=:8580
         - --kubernetes
         - --kubernetes.endpoint=http://x.x.x.x:8080
-        #- --configFile=/etc/traefik/traefik.toml
-        - --logLevel=DEBUG
       nodeSelector:
-        mucang.cn/role: dev
-      #  edgenode: "true"
+        edug: traefik
